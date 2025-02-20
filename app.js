@@ -10,7 +10,8 @@ const userRoute = require("./routes/user_route");
 app.use("/",userRoute);
 
 app.use((error,req,res,next)=>{
-    
+    res.status(400).json({cond : false,message : error.message});
+    next();
 })
 
 
